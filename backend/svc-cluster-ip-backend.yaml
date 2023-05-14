@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-backend
+spec:
+  selector:
+    app: nik-backend
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 4000
