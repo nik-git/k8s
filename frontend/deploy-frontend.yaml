@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nik-frontend-deploy
+  labels:
+    app: nik-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nik-frontend
+  template:
+    metadata:
+      labels:
+        app: nik-frontend
+    spec:
+      containers:
+      - name: nik-frontend-pod
+        image: docker0411/frontend-app:v1
+        env:
+          - name: PORT
+            value: "3000"
+          - name: BACKEND_URL
+            value: "http://10.109.143.109:4000"
+        ports:
+        - containerPort: 3000
