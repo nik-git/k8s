@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: svc-postgres
+spec:
+  selector:
+    app: nik-appdemo-psdb
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 5432

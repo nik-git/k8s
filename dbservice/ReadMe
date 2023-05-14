@@ -1,0 +1,30 @@
+docker run –name pgsql-dev -e POSTGRES_PASSWORD=Postgres -p 5432:5432 Postgres
+
+docker build -t docker0411/psdb:v1 .
+docker images
+docker push docker0411/psdb:v1
+command to open ps terminal :  psql -U postgres
+all users : \du , \du+
+all db : \l
+create db : CREATE DATABASE nikpsdb;
+select a db : \c nikpsdb;
+// You are now connected to database "nikpsdb" as user "postgres".
+list all tables : \dt
+CREATE TABLE users(
+   emailid varchar(100) NOT null,
+	"name" varchar(100) NULL
+);
+
+
+ALTER TABLE users ADD CONSTRAINT users_pk PRIMARY KEY (emailid);
+
+insert into users(emailid, name) values('abcd@abcd.com', 'Abcd');
+
+psql -h 10.103.136.104 -p 5432 -U postgres nikpsdb
+psql --version
+sudo apt-get install -y postgresql-client
+ curl 10.103.136.104:5432
+postgres
+psql -h 10.103.136.104 -p 5432 -U postgres nikpsdb;
+\q
+ \password postgres // set new password
